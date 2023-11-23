@@ -10,5 +10,6 @@
         <module name="zelda-service.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="17" />
   </component>
 </project>
