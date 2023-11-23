@@ -32,6 +32,7 @@ public class UsuarioService {
         ResponseEntity<Usuario> response;
         if(usuarioInterinoRepository.existsById(idUsuarioDesatualizado)){
             usuarioAtualizado.setId(idUsuarioDesatualizado);
+            usuarioAtualizado = usuarioInterinoRepository.save(usuarioAtualizado);
             response = ResponseEntity.ok(usuarioAtualizado);
         } else {
             response = ResponseEntity.notFound().build();
