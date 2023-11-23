@@ -30,11 +30,11 @@ public class UsuarioController {
         return usuarioService.getUsuarios();
     }
 
-    @PutMapping("/usuarios/alterar")
-    public ResponseEntity<Usuario> atualizarUsuario(@RequestParam(value = "id") Long id,
+    @PutMapping("/usuarios/alterar/{id}")
+    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable Long id,
                                                     @RequestBody Usuario usuarioAtualizado) {
         usuarioService.updateUsuario(id, usuarioAtualizado);
-        return usuarioAtualizado != null & usuarioService.getUsuarioById(id) != null ?
+        return usuarioAtualizado != null & usuarioService.getUsuarioById(id).isPresent() ?
                 ResponseEntity.ok(usuarioAtualizado) :
                 ResponseEntity.notFound().build();
     }
