@@ -20,20 +20,31 @@ public class UsuarioService {
         return usuarioInterinoRepository.findById(id);
     }
 
-    public List<Usuario> getUsuarios(){
+    public List<Usuario> getUsuarios() {
         return usuarioInterinoRepository.findAll();
     }
 
-    public Usuario saveUsuario(Usuario usuario){
+    public Usuario saveUsuario(Usuario usuario) {
         return usuarioInterinoRepository.save(usuario);
     }
 
-    public ResponseEntity<Usuario> updateUsuario(long idUsuarioDesatualizado, Usuario usuarioAtualizado){
+    public ResponseEntity<Usuario> updateUsuario(long idUsuarioDesatualizado, Usuario usuarioAtualizado) {
         ResponseEntity<Usuario> response;
-        if(usuarioInterinoRepository.existsById(idUsuarioDesatualizado)){
+        if (usuarioInterinoRepository.existsById(idUsuarioDesatualizado)) {
             usuarioAtualizado.setId(idUsuarioDesatualizado);
             usuarioAtualizado = usuarioInterinoRepository.save(usuarioAtualizado);
             response = ResponseEntity.ok(usuarioAtualizado);
+        } else {
+            response = ResponseEntity.notFound().build();
+        }
+        return response;
+    }
+
+    public ResponseEntity<?> deletarUsuario(long id) {
+        ResponseEntity<String> response;
+        if (usuarioInterinoRepository.existsById(id)) {
+            usuarioInterinoRepository.deleteById(id);
+            response = ResponseEntity.ok().build();
         } else {
             response = ResponseEntity.notFound().build();
         }
