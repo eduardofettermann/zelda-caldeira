@@ -38,4 +38,9 @@ public class UsuarioController {
                 ResponseEntity.ok(usuarioAtualizado) :
                 ResponseEntity.notFound().build();
     }
+
+    @DeleteMapping("/usuarios/delete/{id}")
+    public ResponseEntity<?> atualizarUsuario(@PathVariable Long id) {
+        return usuarioService.deletarUsuario(id);
+    }
 }
