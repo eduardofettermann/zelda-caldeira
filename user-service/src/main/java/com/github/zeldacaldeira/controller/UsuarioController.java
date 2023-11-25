@@ -1,6 +1,8 @@
 package com.github.zeldacaldeira.controller;
 
 import com.github.zeldacaldeira.model.Usuario;
+import com.github.zeldacaldeira.model.UsuarioAtualizado;
+import com.github.zeldacaldeira.repository.UsuarioInterinoRepository;
 import com.github.zeldacaldeira.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,37 +12,40 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/zelda+caldeira")
+@RequestMapping("/zeldacaldeira")
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
-
-    @PostMapping("/usuarios/cadastrar")
-    public Usuario salvarUsuario(@RequestBody Usuario usuario) {
-        return usuarioService.saveUsuario(usuario);
-    }
-
-    @GetMapping("/usuarios/{id}")
-    public Optional<Usuario> retornarUsuarioPorId(@PathVariable Long id) {
-        return usuarioService.getUsuarioById(id);
-    }
+    @Autowired
+    private UsuarioInterinoRepository usuarioInterinoRepository;
 
     @GetMapping("/usuarios")
     public List<Usuario> retornarUsuarios() {
         return usuarioService.getUsuarios();
     }
 
-    @PutMapping("/usuarios/alterar/{id}")
-    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable Long id,
-                                                    @RequestBody Usuario usuarioAtualizado) {
-        usuarioService.updateUsuario(id, usuarioAtualizado);
-        return usuarioAtualizado != null & usuarioService.getUsuarioById(id).isPresent() ?
-                ResponseEntity.ok(usuarioAtualizado) :
+    @GetMapping("/usuarios/{id}")
+    public ResponseEntity<Optional<Usuario>> retornarUsuarioPorId(@PathVariable Long id) {
+        return usuarioService.getUsuarioById(id).isPresent() ?
+                ResponseEntity.ok(usuarioService.getUsuarioById(id)) :
                 ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/usuarios/delete/{id}")
-    public ResponseEntity<?> atualizarUsuario(@PathVariable Long id) {
-        return usuarioService.deletarUsuario(id);
+    @PostMapping("/usuarios/cadastrar")
+    public Usuario salvarUsuario(@RequestBody Usuario usuario) {
+        return usuarioService.saveUsuario(usuario);
+    }
+
+    @PutMapping("/usuarios/atualizar/{id}")
+    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable Long id, @RequestBody UsuarioAtualizado atualizacaoDoUsuario) {
+        return usuarioService.updateUsuario(id, atualizacaoDoUsuario) != null ?
+                ResponseEntity.ok(usuarioService.updateUsuario(id, atualizacaoDoUsuario)) :
+                ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/usuarios/deletar/{id}")
+    public ResponseEntity<Void> deletarUsuario(@PathVariable Long id) {
+        usuarioService.deletarUsuario(id);
+        return ResponseEntity.noContent().build();
     }
 }
