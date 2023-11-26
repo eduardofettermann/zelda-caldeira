@@ -18,4 +18,14 @@ public class Usuario {
     private long id;
     private String nome;
     private int idade;
+
+    public Usuario(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public Usuario(UsuarioDTO atualizacaoDoUsuario) {
+        this.nome = atualizacaoDoUsuario.nome();
+        this.idade = atualizacaoDoUsuario.idade();
+    }
 }
