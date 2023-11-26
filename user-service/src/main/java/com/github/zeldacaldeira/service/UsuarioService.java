@@ -1,7 +1,7 @@
 package com.github.zeldacaldeira.service;
 
 import com.github.zeldacaldeira.model.Usuario;
-import com.github.zeldacaldeira.model.UsuarioAtualizado;
+import com.github.zeldacaldeira.model.UsuarioDTO;
 import com.github.zeldacaldeira.repository.UsuarioInterinoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,11 +25,11 @@ public class UsuarioService {
         return usuarioInterinoRepository.findAll();
     }
 
-    public Usuario saveUsuario(Usuario usuario) {
-        return usuarioInterinoRepository.save(usuario);
+    public Usuario saveUsuario(UsuarioDTO usuarioDTO) {
+        return usuarioInterinoRepository.save(new Usuario(usuarioDTO));
     }
 
-    public Usuario updateUsuario(Long id, UsuarioAtualizado atualizacaoDoUsuario) {
+    public Usuario updateUsuario(Long id, UsuarioDTO atualizacaoDoUsuario) {
         if (usuarioInterinoRepository.existsById(id)) {
             Usuario usuario = new Usuario(atualizacaoDoUsuario);
             usuario.setId(id);
