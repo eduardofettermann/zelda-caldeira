@@ -24,7 +24,7 @@ public class Usuario {
         this.idade = idade;
     }
 
-    public Usuario(UsuarioAtualizado atualizacaoDoUsuario) {
+    public Usuario(UsuarioDTO atualizacaoDoUsuario) {
         this.nome = atualizacaoDoUsuario.nome();
         this.idade = atualizacaoDoUsuario.idade();
     }
