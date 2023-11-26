@@ -2,7 +2,6 @@ package com.github.zeldacaldeira.controller;
 
 import com.github.zeldacaldeira.model.Usuario;
 import com.github.zeldacaldeira.model.UsuarioDTO;
-import com.github.zeldacaldeira.repository.UsuarioInterinoRepository;
 import com.github.zeldacaldeira.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +15,6 @@ import java.util.Optional;
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
-    @Autowired
-    private UsuarioInterinoRepository usuarioInterinoRepository;
 
     @GetMapping("/usuarios")
     public List<Usuario> retornarUsuarios() {
