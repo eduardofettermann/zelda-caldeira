@@ -1,7 +1,7 @@
 package com.github.zeldacaldeira.controller;
 
 import com.github.zeldacaldeira.model.Usuario;
-import com.github.zeldacaldeira.model.UsuarioAtualizado;
+import com.github.zeldacaldeira.model.UsuarioDTO;
 import com.github.zeldacaldeira.repository.UsuarioInterinoRepository;
 import com.github.zeldacaldeira.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,12 +32,12 @@ public class UsuarioController {
     }
 
     @PostMapping("/usuarios/cadastrar")
-    public Usuario salvarUsuario(@RequestBody Usuario usuario) {
-        return usuarioService.saveUsuario(usuario);
+    public Usuario salvarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+        return usuarioService.saveUsuario(usuarioDTO);
     }
 
     @PutMapping("/usuarios/atualizar/{id}")
-    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable Long id, @RequestBody UsuarioAtualizado atualizacaoDoUsuario) {
+    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable Long id, @RequestBody UsuarioDTO atualizacaoDoUsuario) {
         return usuarioService.updateUsuario(id, atualizacaoDoUsuario) != null ?
                 ResponseEntity.ok(usuarioService.updateUsuario(id, atualizacaoDoUsuario)) :
                 ResponseEntity.notFound().build();
