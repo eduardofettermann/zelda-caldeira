@@ -32,13 +32,17 @@ public class UsuarioService {
     public Usuario updateUsuario(Long id, UsuarioDTO atualizacaoDoUsuario) {
         if (usuarioRepository.existsById(id)) {
             Usuario usuario = new Usuario(atualizacaoDoUsuario);
-            usuario.setId(id);
+            usuario.setId(id);Test
             return usuarioRepository.save(usuario);
         }
         return null;
     }
 
-    public void deletarUsuario(long id) {
-        usuarioRepository.deleteById(id);
+    public boolean deletarUsuario(long id) {
+        if (usuarioRepository.existsById(id)){
+            usuarioRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }
