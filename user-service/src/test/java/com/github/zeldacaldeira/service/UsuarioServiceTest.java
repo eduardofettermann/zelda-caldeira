@@ -106,10 +106,14 @@ public class UsuarioServiceTest {
     @Test
     @DisplayName("005 - Testa deleteById()")
     public void deveDeletarUsuarioPeloId() {
+        // Arrange
+        when(repository.existsById(anyLong())).thenReturn(true);
+
         // Act
-        service.deletarUsuario(anyLong());
+        boolean result = service.deletarUsuario(anyLong());
 
         // Assert
+        assertTrue(result);
         verify(repository).deleteById(anyLong());
         verify(repository, times(1)).deleteById(anyLong());
     }
