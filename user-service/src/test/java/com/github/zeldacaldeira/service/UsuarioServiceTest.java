@@ -2,7 +2,7 @@ package com.github.zeldacaldeira.service;
 
 import com.github.zeldacaldeira.model.Usuario;
 import com.github.zeldacaldeira.model.UsuarioDTO;
-import com.github.zeldacaldeira.repository.UsuarioInterinoRepository;
+import com.github.zeldacaldeira.repository.UsuarioRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,7 +26,7 @@ public class UsuarioServiceTest {
     private UsuarioService service;
 
     @Mock
-    private UsuarioInterinoRepository repository;
+    private UsuarioRepository repository;
 
     private Usuario usuarioMockado;
 
@@ -106,10 +106,14 @@ public class UsuarioServiceTest {
     @Test
     @DisplayName("005 - Testa deleteById()")
     public void deveDeletarUsuarioPeloId() {
+        // Arrange
+        when(repository.existsById(anyLong())).thenReturn(true);
+
         // Act
-        service.deletarUsuario(anyLong());
+        boolean result = service.deletarUsuario(anyLong());
 
         // Assert
+        assertTrue(result);
         verify(repository).deleteById(anyLong());
         verify(repository, times(1)).deleteById(anyLong());
     }
