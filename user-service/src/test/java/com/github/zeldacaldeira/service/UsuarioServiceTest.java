@@ -76,11 +76,9 @@ public class UsuarioServiceTest {
         when(repository.findAll()).thenReturn(Arrays.asList(usuarioMockado, mock(Usuario.class), mock(Usuario.class)));
         List<Usuario> usuarios = service.getUsuarios();
 
-        // Verificações
+        // Assert
         assertNotNull(usuarios);
         assertEquals(3, usuarios.size());
-
-        // Verifica se o método findAll foi chamado
         verify(repository).findAll();
     }
 
