@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "Usuario")
 @Table(name = "Usuarios")
 public class Usuario {
     @Id
@@ -24,7 +24,7 @@ public class Usuario {
         this.idade = idade;
     }
 
-    public Usuario(UsuarioAtualizado atualizacaoDoUsuario) {
+    public Usuario(UsuarioDTO atualizacaoDoUsuario) {
         this.nome = atualizacaoDoUsuario.nome();
         this.idade = atualizacaoDoUsuario.idade();
     }
