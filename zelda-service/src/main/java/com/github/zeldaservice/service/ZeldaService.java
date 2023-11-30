@@ -1,10 +1,11 @@
 package com.github.zeldaservice.service;
 
 import com.github.zeldaservice.components.ZeldaWebClient;
-import com.github.zeldaservice.model.JogoResponse;
+import com.github.zeldaservice.model.Jogo;
 import com.github.zeldaservice.model.TodosJogosResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 @Service
 public class ZeldaService {
@@ -15,8 +16,7 @@ public class ZeldaService {
         return webClient.getTodosJogos();
     }
 
-    public JogoResponse getJogoById(String id) {
-        return webClient.getJogo(id);
+    public Jogo getJogoById(String id) throws WebClientResponseException {
+        return webClient.getJogo(id).getJogoEncontrado();
     }
-
 }
