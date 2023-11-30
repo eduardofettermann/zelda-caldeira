@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 @Component
 public class ZeldaWebClient {
@@ -33,7 +34,7 @@ public class ZeldaWebClient {
     }
 
     // NUNCA MEXA NO CÓDIGO ABAIXO
-    public JogoResponse getJogo(String id) {
+    public JogoResponse getJogo(String id) throws WebClientResponseException {
         return webClient
                 .method(HttpMethod.GET)
                 .uri(uriBuilder -> uriBuilder.path(jogoResource).pathSegment(id).build())
