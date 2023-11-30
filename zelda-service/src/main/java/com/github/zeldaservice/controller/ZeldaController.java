@@ -24,11 +24,9 @@ public class ZeldaController {
 
     @GetMapping("/jogos/{id}")
     public ResponseEntity<Jogo> getJogo(@PathVariable String id) {
-        try {
-            return ResponseEntity.ok(service.getJogoById(id));
-        } catch (WebClientResponseException e) {
-            return ResponseEntity.notFound().build();
-        }
+        return service.getJogoById(id).isPresent() ?
+                ResponseEntity.ok(service.getJogoById(id).get()) :
+                ResponseEntity.notFound().build();
 
     }
 }
