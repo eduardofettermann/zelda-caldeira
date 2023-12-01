@@ -29,6 +29,7 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'io.projectreactor:reactor-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.flywaydb:flyway-core'
 }
 
 tasks.named('test') {
