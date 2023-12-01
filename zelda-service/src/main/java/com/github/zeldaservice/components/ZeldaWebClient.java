@@ -3,6 +3,7 @@ package com.github.zeldaservice.components;
 import com.github.zeldaservice.configuration.ZeldaConfiguration;
 import com.github.zeldaservice.model.JogoResponse;
 import com.github.zeldaservice.model.TodosJogosResponse;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
@@ -10,6 +11,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 @Component
+@Getter
 public class ZeldaWebClient {
     private final String todosJogosResource;
     private final String jogoResource;
