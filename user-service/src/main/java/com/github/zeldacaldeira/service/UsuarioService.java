@@ -1,7 +1,7 @@
 package com.github.zeldacaldeira.service;
 
-import com.github.zeldacaldeira.model.Usuario;
-import com.github.zeldacaldeira.model.UsuarioDTO;
+import com.github.zeldacaldeira.model.usuario.Usuario;
+import com.github.zeldacaldeira.model.usuario.AtualizacaoUsuario;
 import com.github.zeldacaldeira.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,18 +25,18 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public Usuario saveUsuario(UsuarioDTO usuarioDTO) {
-        return usuarioRepository.save(new Usuario(usuarioDTO));
-    }
+//    public Usuario saveUsuario(AtualizacaoUsuario atualizacaoUsuario) {
+//        return usuarioRepository.save(new Usuario(atualizacaoUsuario));
+//    }
 
-    public Usuario updateUsuario(Long id, UsuarioDTO atualizacaoDoUsuario) {
-        if (usuarioRepository.existsById(id)) {
-            Usuario usuario = new Usuario(atualizacaoDoUsuario);
-            usuario.setId(id);
-            return usuarioRepository.save(usuario);
-        }
-        return null;
-    }
+//    public Usuario updateUsuario(Long id, AtualizacaoUsuario atualizacaoDoUsuario) {
+//        if (usuarioRepository.existsById(id)) {
+//            Usuario usuario = new Usuario(atualizacaoDoUsuario);
+//            usuario.setId(id);
+//            return usuarioRepository.save(usuario);
+//        }
+//        return null;
+//    }
 
     public boolean deletarUsuario(long id) {
         if (usuarioRepository.existsById(id)){
