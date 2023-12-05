@@ -25,6 +25,13 @@ public class Usuario implements UserDetails {
     private Cargo cargo;
     private String nome;
     private int idade;
+//    @ManyToMany
+//    @JoinTable(
+//            name = "JogosUsuarios",
+//            joinColumns = @JoinColumn(name = "id_usuario"),
+//            inverseJoinColumns = @JoinColumn(name = "id_jogo")
+//    )
+//    private List<Jogo> jogosFavoritos;
 
     public Usuario(CadastroDTO cadastroDTO) {
         this.login = cadastroDTO.login();
