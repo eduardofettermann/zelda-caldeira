@@ -3,5 +3,6 @@ CREATE TABLE Usuarios (
     login TEXT NOT NULL UNIQUE,
     senha TEXT NOT NULL,
     nome TEXT NOT NULL,
+    cargo VARCHAR(255) NOT NULL,
     idade INTEGER NOT NULL
 );
