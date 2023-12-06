@@ -1,0 +1,94 @@
+body {
+  height: 100vh;
+  background-color: var(--gray-backg);
+}
+
+.main {
+  padding: 55px;
+  display: flex;
+  position: absolute;
+  height: auto;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.gif {
+  height: 100%;
+  position: relative;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.gif img {
+  bottom: 0;
+  position: absolute;
+}
+
+.login {
+  height: 100%;
+  width: 50%;
+  padding: 0px 150px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.login-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  height: 100%;
+  width: 100%;
+  padding: 56px 78px;
+  gap: 24px;
+
+  background-color: white;
+  border-radius: 20px;
+}
+
+.login-logo {
+  width: 200px;
+  height: fit-content;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 18px;
+}
+
+.login-card input {
+  padding: 16px;
+  font: 18px var(--inter);
+  color: black;
+  border: 2px solid var(--black20);
+  border-radius: 12px;
+  width: 100%;
+}
+
+.login-card input::placeholder {
+  font: 18px var(--inter);
+  color: var(--black40);
+}
+
+.login-card input[type="submit"] {
+  border: 0px;
+  background-color: var(--red);
+  color: white;
+  font: 700 18px var(--inter);
+}
+
+.login-card strong {
+  user-select: none;
+  color: var(--yellow);
+  cursor: pointer;
+}

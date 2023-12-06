@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+:root {
+  /* Fontes */
+  --inter: "Inter", sans-serif;
+
+  /* Cores */
+  --gray-backg: #29363e;
+  --black80: #000000cc;
+  --black40: #00000066;
+  --black20: #00000033;
+  --red: #ca010c;
+  --yellow: #ecb301;
+}
+
+.inter400w22px {
+  font-family: var(--inter);
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px 80px;
+}
+
+.header-logo {
+  width: 170px;
+  height: fit-content;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-info #profile-pic {
+  width: 60px;
+  height: fit-content;
+  border-radius: 100%;
+}
+
+.header-info #logout {
+  width: 50px;
+  height: fit-content;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

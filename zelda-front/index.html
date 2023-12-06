@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/hidden.css">
+
+    <script src="./js/zelda-service.js" defer></script>
+    <script src="./js/cover_hover.js" defer></script>
+    <title>Zelda API</title>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <img src="./assets/ZeldaAPI_0-25.png" alt="Zelda API" class="header-logo">
+            <div class="header-info">
+                <img src="./assets/linkIconBackg.png" alt="Foto usuário" id="profile-pic">
+                <p class="inter400w22px">Olá, User</p>
+                <img src="./assets/logOut.svg" alt="Log out" id="logout">
+            </div>
+        </header>
+        <div class="content">
+            <div class="search hidden">
+                <input type="text" name="search" id="search-input" placeholder="Buscar jogo">
+                <input type="submit" value="Pesquisar" id="search-btn">
+            </div>
+            <div class="jogos">
+                <ul class="lista-jogos">
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

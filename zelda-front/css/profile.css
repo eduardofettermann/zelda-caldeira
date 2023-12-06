@@ -1,0 +1,71 @@
+.main {
+  padding: 55px;
+  display: flex;
+  position: absolute;
+  height: auto;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back,
+.profile,
+.remove {
+  display: flex;
+  align-items: center;
+}
+
+.profile {
+  width: 55%;
+  gap: 50px;
+}
+
+.profile-pic img {
+  width: 300px;
+  height: fit-content;
+  border-radius: 100%;
+}
+
+.profile-data {
+  font: 18px var(--inter);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  gap: 18px;
+}
+
+.profile-data input {
+  padding: 16px;
+  font: 18px var(--inter);
+  color: black;
+  border: 2px solid var(--black20);
+  border-radius: 12px;
+  width: 100%;
+}
+
+.profile-data .age {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.profile-data .age input {
+  width: 30%;
+}
+
+.remove {
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.remove p {
+  width: 70%;
+  text-align: center;
+}

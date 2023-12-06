@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/fav.css">
+    <link rel="stylesheet" href="./css/hidden.css">
+
+    <script src="./js/cover_hover.js" defer></script>
+    <title>Jogos favoritos - Zelda API</title>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <img src="./assets/ZeldaAPI_0-25.png" alt="Zelda API" class="header-logo">
+            <div class="header-info">
+                <img src="./assets/linkIconBackg.png" alt="Foto usuário" id="profile-pic">
+                <p class="inter400w22px">Olá, User</p>
+                <img src="./assets/logOut.svg" alt="Log out" id="logout">
+            </div>
+        </header>
+        <div class="content">
+            <p class="inter400w22px">Meus jogos favoritos</p>
+            <ul class="lista-jogos">
+                <li class="jogo">
+                    <a href="">
+                        <div class="jogo-cover">
+                            <img src="./assets/editIcon.svg" alt="" class="hidden">
+                            <p class="hidden" id="nome-jogo">The Legend of Zelda: Nome do jogo</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="jogo">
+                    <a href="">
+                        <div class="jogo-cover">
+                            <img src="./assets/editIcon.svg" alt="" class="hidden">
+                            <p class="hidden">The Legend of Zelda: Nome do jogo</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="adicionar-jogo">
+                    <a href="">
+                        <div class="adicionar">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="70px" viewBox="0 0 24 24" width="70px"
+                                fill="#00000066">
+                                <path d="M0 0h24v24H0V0z" fill="none" />
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                            </svg>
+                            <p>Adicionar jogo</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>
