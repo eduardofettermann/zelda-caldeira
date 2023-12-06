@@ -22,6 +22,7 @@ public class Usuario implements UserDetails {
     private long id;
     private String login;
     private String senha;
+    @Enumerated(EnumType.STRING)
     private Cargo cargo;
     private String nome;
     private int idade;
