@@ -1,5 +1,6 @@
 package com.github.zeldacaldeira.model.usuario;
 
+import com.github.zeldacaldeira.model.jogo.Jogo;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,6 +27,13 @@ public class Usuario implements UserDetails {
     private Cargo cargo;
     private String nome;
     private int idade;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "Usuarios_Jogos_Favoritos",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "jogo_id")
+    )
+    private List<Jogo> jogosFavoritos;
 
     public Usuario(CadastroDTO cadastroDTO) {
         this.login = cadastroDTO.login();
