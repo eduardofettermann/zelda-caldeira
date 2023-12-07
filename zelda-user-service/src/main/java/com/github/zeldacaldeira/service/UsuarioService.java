@@ -39,7 +39,11 @@ public class UsuarioService {
 
     public Usuario updateUsuario(Long id, AtualizacaoUsuario atualizacaoDoUsuario) {
         if (usuarioRepository.existsById(id)) {
+            Optional<Usuario> usuarioASerAtualizado = usuarioRepository.findById(id);
             Usuario usuario = new Usuario(atualizacaoDoUsuario);
+            usuario.setSenha(usuarioASerAtualizado.get().getSenha());
+            usuario.setJogosFavoritos(usuarioASerAtualizado.get().getJogosFavoritos());
+            usuario.setLogin(usuarioASerAtualizado.get().getLogin());
             usuario.setId(id);
             return usuarioRepository.save(usuario);
         }
