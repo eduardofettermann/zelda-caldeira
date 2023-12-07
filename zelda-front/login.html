@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/hidden.css">
+
+    <script src="./js/login.js" defer></script>
+
+    <title>Login - Zelda API</title>
+</head>
+
+<body>
+    <main class="main">
+        <div class="gif">
+            <img src="./assets/link.gif" alt="Link tocando a Ocarina">
+        </div>
+        <div class="login">
+            <div class="login-card">
+                <img src="./assets/ZeldaAPI_0-25.png" alt="Zelda API" class="login-logo">
+                <form action="">
+                    <p class="inter400w22px" id="faca-login">Faça login!</p>
+                    <input type="text" name="name" id="name" class="hidden" placeholder="Insira seu nome">
+                    <input type="email" name="email" id="email" placeholder="Seu e-mail">
+                    <input type="password" name="password" id="password" placeholder="Sua senha">
+                    <input type="password" name="confirm-password" class="hidden" id="confirm-password"
+                        placeholder="Confirme sua senha">
+                    <input type="submit" value="Entrar" id="submit">
+                </form>
+                <p class="inter400w22px" id="changeLogin-text">Não possui conta? <strong
+                        id="change-login">Cadastre-se</strong></p>
+                <p class="inter400w22px hidden" id="changeSign-text">Já possui conta? <strong
+                        id="change-sign">Login</strong>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

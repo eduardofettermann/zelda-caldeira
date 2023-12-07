@@ -1,0 +1,118 @@
+body {
+  height: 100vh;
+  background-color: white;
+}
+
+.main {
+  padding: 55px;
+  display: flex;
+  position: absolute;
+  height: auto;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.search {
+  display: flex;
+  width: 65%;
+  gap: 28px;
+  margin: 32px 0;
+}
+
+.search input {
+  padding: 16px;
+  font: 18px var(--inter);
+  color: black;
+  border: 2px solid var(--black20);
+  border-radius: 12px;
+  box-sizing: border-boxS;
+}
+
+.search #search-input {
+  width: 70%;
+}
+
+.search #search-btn {
+  border: 0px;
+  width: 25%;
+  background-color: var(--red);
+  color: white;
+  font: 700 18px var(--inter);
+  cursor: pointer;
+}
+
+.lista-jogos {
+  display: flex;
+  list-style-type: none;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+.jogo {
+  background-color: black;
+  border-radius: 15px;
+}
+
+.jogo a {
+  font: 18px var(--inter);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.jogo-cover {
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
+  opacity: 100%;
+
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  box-sizing: border-box;
+  padding: 33px 10px;
+  gap: 20px;
+}
+
+.jogo-cover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: none;
+  z-index: 0;
+  border-radius: 15px;
+  transition: all ease-out 100ms;
+}
+
+.jogo-cover:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--black80);
+  z-index: 0;
+  border-radius: 15px;
+}
+
+.jogo-cover img {
+  width: 75px;
+  height: fit-content;
+}
+
+.jogo-cover img,
+.jogo-cover p {
+  z-index: 1;
+}
+
+.jogo-cover p {
+  height: 65px;
+}

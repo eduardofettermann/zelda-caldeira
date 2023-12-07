@@ -1,0 +1,148 @@
+body {
+  height: 100vh;
+  background-color: white;
+}
+
+.main {
+  padding: 55px;
+  display: flex;
+  position: absolute;
+  height: auto;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.content p:first-child {
+  margin: 32px 0;
+}
+
+.lista-jogos {
+  display: flex;
+  list-style-type: none;
+  gap: 28px;
+}
+
+.jogo {
+  background-color: black;
+  border-radius: 15px;
+}
+
+.jogo a {
+  font: 18px var(--inter);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.jogo-cover {
+  background: url("../assets/covers/breathWild.webp") center/cover;
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
+  opacity: 100%;
+
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  box-sizing: border-box;
+  padding: 33px 26px;
+  gap: 20px;
+}
+
+.jogo-cover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: none;
+  z-index: 0;
+  border-radius: 15px;
+  transition: all ease-out 100ms;
+}
+
+.jogo-cover:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--black80);
+  z-index: 0;
+  border-radius: 15px;
+}
+
+.jogo-cover img {
+  width: 75px;
+  height: fit-content;
+}
+
+.jogo-cover img,
+.jogo-cover p {
+  z-index: 1;
+}
+
+.adicionar-jogo {
+  background-color: white;
+  border: 2px solid var(--black20);
+  border-radius: 12px;
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
+  opacity: 100%;
+
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  box-sizing: border-box;
+  padding: 33px 26px;
+  gap: 20px;
+  transition: 200ms border;
+}
+
+.adicionar-jogo a {
+  font: 18px var(--inter);
+  color: var(--black40);
+  text-align: center;
+  text-decoration: none;
+  transition: 200ms all;
+}
+
+.adicionar-jogo:hover {
+  border: 2px solid var(--black40);
+}
+
+.adicionar-jogo:hover a {
+  color: var(--black80);
+}
+
+.adicionar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+
+.adicionar svg {
+  width: 80px;
+  height: auto;
+  margin: 35px;
+  transition: 200ms all;
+}
+
+.adicionar-jogo:hover svg {
+  fill: #000000cc;
+}
+
+.adicionar p {
+  text-align: center;
+  width: 70%;
+}
