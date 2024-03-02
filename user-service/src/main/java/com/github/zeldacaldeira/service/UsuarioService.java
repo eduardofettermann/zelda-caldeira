@@ -1,7 +1,8 @@
 package com.github.zeldacaldeira.service;
 
+import com.github.zeldacaldeira.model.usuario.AtualizacaoUsuarioDTO;
+import com.github.zeldacaldeira.model.usuario.CadastroDTO;
 import com.github.zeldacaldeira.model.usuario.Usuario;
-import com.github.zeldacaldeira.model.usuario.AtualizacaoUsuario;
 import com.github.zeldacaldeira.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,32 +15,32 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public Optional<Usuario> getUsuarioById(Long id) {
+    public Optional<Usuario> listaUsuarioById(Long id) {
         if (usuarioRepository.existsById(id)) {
             return usuarioRepository.findById(id);
         }
         return Optional.empty();
     }
 
-    public List<Usuario> getUsuarios() {
+    public List<Usuario> listaUsuarios() {
         return usuarioRepository.findAll();
     }
 
-//    public Usuario saveUsuario(AtualizacaoUsuario atualizacaoUsuario) {
-//        return usuarioRepository.save(new Usuario(atualizacaoUsuario));
-//    }
+    public Usuario salvaUsuario(CadastroDTO cadastroDTO) {
+        return usuarioRepository.save(new Usuario(cadastroDTO));
+    }
 
-//    public Usuario updateUsuario(Long id, AtualizacaoUsuario atualizacaoDoUsuario) {
-//        if (usuarioRepository.existsById(id)) {
-//            Usuario usuario = new Usuario(atualizacaoDoUsuario);
-//            usuario.setId(id);
-//            return usuarioRepository.save(usuario);
-//        }
-//        return null;
-//    }
+    public Usuario atualizaUsuario(Long id, AtualizacaoUsuarioDTO atualizacaoUsuarioDTO) {
+        if (usuarioRepository.existsById(id)) {
+            Usuario usuario = usuarioRepository.findById(id).get();
+            usuario.atualizarUsuario(atualizacaoUsuarioDTO);
+            return usuarioRepository.save(usuario);
+        }
+        return null;
+    }
 
-    public boolean deletarUsuario(long id) {
-        if (usuarioRepository.existsById(id)){
+    public boolean deletaUsuario(long id) {
+        if (usuarioRepository.existsById(id)) {
             usuarioRepository.deleteById(id);
             return true;
         }
