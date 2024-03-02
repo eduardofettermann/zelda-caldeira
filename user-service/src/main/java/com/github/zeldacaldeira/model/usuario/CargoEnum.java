@@ -1,11 +1,11 @@
 package com.github.zeldacaldeira.model.usuario;
 
-public enum Cargo {
+public enum CargoEnum {
     ADMINISTRADOR("administrador"),
     USUARIO("usuario");
     private String cargo;
 
-    Cargo(String nomeDoCargo) {
+    CargoEnum(String nomeDoCargo) {
         this.cargo = nomeDoCargo;
     }
 
