@@ -1,5 +1,6 @@
 package com.github.zeldacaldeira.model.usuario;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,38 +21,37 @@ public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String login;
+    private String email;
     private String senha;
-    private Cargo cargo;
     private String nome;
-    private int idade;
-//    @ManyToMany
-//    @JoinTable(
-//            name = "JogosUsuarios",
-//            joinColumns = @JoinColumn(name = "id_usuario"),
-//            inverseJoinColumns = @JoinColumn(name = "id_jogo")
-//    )
-//    private List<Jogo> jogosFavoritos;
+    private Integer idade;
+    @Nullable
+    private CargoEnum cargoEnum;
 
     public Usuario(CadastroDTO cadastroDTO) {
-        this.login = cadastroDTO.login();
-        this.senha = cadastroDTO.senha();
-        this.cargo = cadastroDTO.cargo();
-        this.nome = cadastroDTO.nome();
-        this.idade = cadastroDTO.idade();
+        this.email = cadastroDTO != null ? cadastroDTO.email() : null;
+        this.senha = cadastroDTO != null ? cadastroDTO.senha() : null;
+        this.cargoEnum = cadastroDTO != null ? cadastroDTO.cargoEnum() : CargoEnum.USUARIO;
+        this.nome = cadastroDTO != null ? cadastroDTO.nome() : null;
+        this.idade = cadastroDTO != null ? cadastroDTO.idade() : null;
     }
 
 
-    public Usuario(String nome, int idade, String login, String senha) {
-        this.nome = nome;
-        this.idade = idade;
-        this.login = login;
-        this.senha = senha;
+    public void atualizarUsuario(AtualizacaoUsuarioDTO atualizacaoUsuarioDTO) {
+        if (atualizacaoUsuarioDTO.nome() != null) {
+            this.nome = atualizacaoUsuarioDTO.nome();
+        }
+        if (atualizacaoUsuarioDTO.idade() != null) {
+            this.idade = atualizacaoUsuarioDTO.idade();
+        }
+        if (atualizacaoUsuarioDTO.email() != null) {
+            this.email = atualizacaoUsuarioDTO.email();
+        }
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (this.cargo == Cargo.ADMINISTRADOR) {
+        if (this.cargoEnum == CargoEnum.ADMINISTRADOR) {
             return List.of(new SimpleGrantedAuthority("ROLE_ADMINISTRADOR"),
                     new SimpleGrantedAuthority("ROLE_USUARIO"));
         } else {
@@ -66,7 +66,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public String getUsername() {
-        return login;
+        return email;
     }
 
     @Override
