@@ -1,11 +1,7 @@
 package com.github.zeldacaldeira.model.usuario;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.Collection;
-import java.util.List;
 
 @Getter
 @Setter
@@ -22,13 +18,10 @@ public class Usuario {
     private String senha;
     private String nome;
     private Integer idade;
-    @Nullable
-    private CargoEnum cargoEnum;
 
     public Usuario(CadastroDTO cadastroDTO) {
         this.email = cadastroDTO != null ? cadastroDTO.email() : null;
         this.senha = cadastroDTO != null ? cadastroDTO.senha() : null;
-        this.cargoEnum = cadastroDTO != null ? cadastroDTO.cargoEnum() : CargoEnum.USUARIO;
         this.nome = cadastroDTO != null ? cadastroDTO.nome() : null;
         this.idade = cadastroDTO != null ? cadastroDTO.idade() : null;
     }
