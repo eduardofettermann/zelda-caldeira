@@ -1,4 +1,4 @@
-package com.github.zeldacaldeira.model.usuario;
+package com.github.zeldacaldeira.model;
 
 import jakarta.persistence.*;
 import lombok.*;
