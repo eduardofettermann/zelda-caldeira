@@ -18,11 +18,13 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @GetMapping("/usuarios")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public List<Usuario> listaUsuarios() {
         return usuarioService.listaUsuarios();
     }
 
     @GetMapping("/usuarios/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<Optional<Usuario>> listaUsuarioPorId(@PathVariable Long id) {
         return usuarioService.listaUsuarioById(id).isPresent() ?
                 ResponseEntity.ok(usuarioService.listaUsuarioById(id)) :
@@ -30,18 +32,21 @@ public class UsuarioController {
     }
 
     @PostMapping("/usuarios/cadastra")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<Usuario> salvaUsuario(@RequestBody CadastroDTO cadastroDTO) {
         Usuario usuario = usuarioService.salvaUsuario(cadastroDTO);
         return ResponseEntity.ok(usuario);
     }
 
     @PutMapping("/usuarios/atualiza/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<Usuario> atualizaUsuario(@RequestBody AtualizacaoUsuarioDTO atualizacaoUsuarioDTO, @PathVariable long id) {
         var retornoDaAtualizacao = usuarioService.atualizaUsuario(id, atualizacaoUsuarioDTO);
         return retornoDaAtualizacao != null ? ResponseEntity.ok(retornoDaAtualizacao) : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/usuarios/deleta/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<Void> deletarUsuario(@PathVariable Long id) {
         if (usuarioService.deletaUsuario(id)) {
             usuarioService.deletaUsuario(id);
