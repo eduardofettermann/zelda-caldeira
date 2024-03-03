@@ -1,4 +1,11 @@
 package com.github.zeldacaldeira.model.usuario;
 
-public record CadastroDTO(String login, String senha, Cargo cargo, String nome, int idade) {
+import jakarta.annotation.Nullable;
+
+public record CadastroDTO(
+        String email,
+        String senha,
+        @Nullable CargoEnum cargoEnum,
+        String nome,
+        int idade) {
 }
